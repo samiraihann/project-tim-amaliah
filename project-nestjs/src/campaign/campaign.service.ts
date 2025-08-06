@@ -16,7 +16,7 @@ export class CampaignService {
   }
 
   // GET campaign by ID
-  findOne(id: number): Promise<Campaign> {
-    return this.campaignRepository.findOne({ where: { id } });
-  }
+ findOne(id: number): Promise<Campaign | null> {
+  return this.campaignRepository.findOne({ where: { id } });
+}
 }

@@ -12,7 +12,7 @@ export class CampaignController {
   }
 
   @Get(':id')
-  getCampaignById(@Param('id') id: string): Promise<Campaign> {
-    return this.campaignService.findOne(Number(id));
-  }
+ getCampaignById(@Param('id') id: string): Promise<Campaign | null> {
+  return this.campaignService.findOne(Number(id));
+}
 }
