@@ -12,7 +12,8 @@ export class CampaignController {
   }
 
   @Get(':id')
- getCampaignById(@Param('id') id: string): Promise<Campaign | null> {
+getCampaignById(@Param('id') id: string): Promise<Campaign | null> {
   return this.campaignService.findOne(Number(id));
 }
+
 }

@@ -1,3 +1,4 @@
+// campaign.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,16 +8,14 @@ import { Campaign } from './campaign.entity';
 export class CampaignService {
   constructor(
     @InjectRepository(Campaign)
-    private campaignRepository: Repository<Campaign>,
+    private readonly campaignRepository: Repository<Campaign>,
   ) {}
 
-  // GET all campaigns
   findAll(): Promise<Campaign[]> {
     return this.campaignRepository.find();
   }
 
-  // GET campaign by ID
- findOne(id: number): Promise<Campaign | null> {
-  return this.campaignRepository.findOne({ where: { id } });
-}
+  findOne(id: number): Promise<Campaign | null> {
+    return this.campaignRepository.findOne({ where: { id } });
+  }
 }
